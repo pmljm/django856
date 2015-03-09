@@ -8,13 +8,16 @@
             <div class="navbar-inner">
                 <div class="container">
                     <!-- Logo -->
-                    <a class="brand" href="index.html">
+                    <a class="brand" href="{% url 'home' %}">
                         Plain
                     </a>
                     <ul class="nav">
-                        <li class="active"><a href="index.html" title="Home">Home</a></li>
-                        <li><a href="work.html" title="Our work">Portfolio</a></li>
-                        <li><a href="plans.html" title="Plans and pricing">Pricing</a></li>
+                    {% url 'home' as home %}
+                    {% url 'about' as work %}
+                    {% url 'plans' as plans %}
+                        <li class={% if request.path == home %} class="active" {%endif%}><a href="{% url 'home' %}" title="Home">Home</a></li>
+                        <li class={% if request.path == work %} class="active" {%endif%}><a href="{% url 'work' %}" title="Our work">Portfolio</a></li>
+                        <li class={% if request.path == plans %} class="active" {%endif%}><a href="{% url 'plans' %}" title="Plans and pricing">Pricing</a></li>
                         <li><a href="team.html" title="Our team">Our team</a></li>
                         <li><a href="blog.html" title="Our blog">Blog</a></li>
                         <li class="dropdown">
