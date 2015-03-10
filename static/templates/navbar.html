@@ -15,11 +15,14 @@
                     {% url 'home' as home %}
                     {% url 'about' as work %}
                     {% url 'plans' as plans %}
+                    {% url 'team' as team %}
+                    {% url 'chat' as chat %}
+                    {% url 'contact' as contact %}
                         <li class={% if request.path == home %} class="active" {%endif%}><a href="{% url 'home' %}" title="Home">Home</a></li>
                         <li class={% if request.path == work %} class="active" {%endif%}><a href="{% url 'work' %}" title="Our work">Portfolio</a></li>
                         <li class={% if request.path == plans %} class="active" {%endif%}><a href="{% url 'plans' %}" title="Plans and pricing">Pricing</a></li>
-                        <li><a href="team.html" title="Our team">Our team</a></li>
-                        <li><a href="blog.html" title="Our blog">Blog</a></li>
+                        <li class={% if request.path == team %} class="active" {%endif%}><a href="{% url 'team' %}" title="Our team">Our team</a></li>
+                        <li li class={% if request.path == chat %} class="active" {%endif%}><a href="{% url 'chat' %}" title="Our blog">Blog</a></li>
                         <li class="dropdown">
                             <a href="components.html" title="Features">Features</a>
                             <!-- Dropdown menu -->
@@ -31,7 +34,7 @@
                                 <li><a href="home-variant-2.html" title="">Homepage variant #2</a></li>
                             </ul>
                         </li>
-                        <li><a href="contact.html" title="Contact us">Contact</a></li>
+                        <li li class={% if request.path == contact %} class="active" {%endif%}><a href="{% url 'contact' %}" title="Contact us">Contact</a></li>
                     </ul>
                 </div><!-- end .container -->
             </div><!-- end .navbar-inner -->
