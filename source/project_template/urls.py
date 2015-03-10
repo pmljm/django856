@@ -8,7 +8,10 @@ urlpatterns = patterns('',
     # Examples:
     url(r'^$', 'profiles.views.home', name='home'),
     url(r'^work/$', 'profiles.views.work', name='work'),
-    url(r'^plans/$', 'profiles.views.plans', name='plans'),
+    url(r'^team/$', 'profiles.views.team', name='team'),
+    url(r'^plans/$', 'pricing.views.plans', name='plans'),
+    url(r'^chat/$', 'blog.views.chat', name='chat'),
+    url(r'^contact/$', 'contacts.views.contact', name='contact'),
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^admin/', include(admin.site.urls)),

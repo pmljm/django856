@@ -11,7 +11,7 @@ def work(request):
     template = 'work.html'
     return render(request, template, context)
 
-def plans(request):
+def team(request):
     context = {}
-    template = 'plans.html'
+    template = 'team.html'
     return render(request, template, context)
