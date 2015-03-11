@@ -1,0 +1,7 @@
+Django==1.5.11
+South==1.0.2
+argparse==1.2.1
+django-mongodb-engine==0.5.2
+djangotoolbox==1.6.2
+pymongo==2.8
+wsgiref==0.1.2
