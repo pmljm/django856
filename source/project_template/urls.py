@@ -12,6 +12,7 @@ urlpatterns = patterns('',
     url(r'^plans/$', 'pricing.views.plans', name='plans'),
     url(r'^chat/$', 'blog.views.chat', name='chat'),
     url(r'^contact/$', 'contacts.views.contact', name='contact'),
+    url(r'', include('social_auth.urls')),
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^admin/', include(admin.site.urls)),
