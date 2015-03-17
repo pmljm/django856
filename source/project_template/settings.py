@@ -49,6 +49,17 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
+# Adding social_auth as template processor
+TEMPLATE_CONTEXT_PROCESSORS = (
+    "django.core.context_processors.debug",
+    "django.core.context_processors.i18n",
+    "django.core.context_processors.media",
+    "django.core.context_processors.static",
+    "django.core.context_processors.tz",
+    "django.contrib.messages.context_processors.messages",
+    "django.contrib.auth.context_processors.auth",
+)
+
 ROOT_URLCONF = 'project_template.urls'
 
 WSGI_APPLICATION = 'project_template.wsgi.application'
@@ -92,7 +103,26 @@ if DEBUG:
     MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static", "media")
     STATICFILES_DIRS = [os.path.join(os.path.dirname(BASE_DIR), "static", "static"), ]
 
+# Setup base-line login url for social_auth
+LOGIN_URL = '/login/'
+LOGIN_REDIRECT_URL = '/members/'
+LOGIN_ERROR_URL = '/login-error/'
+
+
+
+# Social_auth specific settings
+SOCIAL_AUTH_DEFAULT_USERNAME = 'new_social_auth_user'
+SOCIAL_AUTH_UID_LENGTH = 16
+SOCIAL_AUTH_ASSOCIATION_HANDLE_LENGTH = 16
+SOCIAL_AUTH_NONCE_SERVER_URL_LENGTH = 16
+SOCIAL_AUTH_ASSOCIATION_SERVER_URL_LENGTH = 16
+SOCIAL_AUTH_ASSOCIATION_HANDLE_LENGTH = 16
+
 # Adding authentication backends for social_auth
+''' Daryl add your recpective social API information. This information will vary depending
+on the application you wish to support. More information here 
+http://django-social-auth.readthedocs.org/en/latest/backends/index.html '''
+
 AUTHENTICATION_BACKENDS = (
     'social_auth.backends.twitter.TwitterBackend',
     'social_auth.backends.facebook.FacebookBackend',
