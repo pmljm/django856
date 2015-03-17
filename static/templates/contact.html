@@ -20,11 +20,18 @@
             <h3>Social networks</h3>
             <br />
             <p class="active lead">
-                <a class="social-network twitter"></a> &nbsp;
-                <a class="social-network facebook"></a> &nbsp;
-                <a class="social-network linkedin"></a> &nbsp;
-                <a class="social-network dribbble"></a> &nbsp;
-                <a class="social-network pinterest"></a>
+                <a  href="{% url 'socialauth_begin' 'facebook-oauth2' %}" class="btn btn-block btn-social btn-facebook" style="color: #3B5998">
+                    <i class="fa fa-facebook fa-2x"></i> Sign in with Facebook
+                  </a>
+                <a  href="{% url 'socialauth_begin' 'twitter-oauth2' %}" class="btn btn-block btn-social btn-twitter" style="color: #55ACEE">
+                    <i class="fa fa-twitter fa-2x"></i> Sign in with Twitter
+                  </a>
+                <a  href="{% url 'socialauth_begin' 'microsoft-oauth2' %}" class="btn btn-block btn-social btn-microsoft" style="color: #2672EC">
+                    <i class="fa fa-windows fa-2x"></i> Sign in with Microsoft
+                  </a>  
+                <a  href="{% url 'socialauth_begin' 'google-oauth2' %}" class="btn btn-block btn-social btn-google" style="color: #DD4B39">
+                    <i class="fa fa-google fa-2x"></i> Sign in with Google
+                </a>
             </p>
             <br />
             <h3>Where to find us</h3>
