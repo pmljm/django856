@@ -12,7 +12,13 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
-
+# Setting django automatic emails
+# Define your credentials here
+EMAIL_HOST = 'yourhost.email.com'
+EMAIL_HOST_USER = 'youremail@example.com'
+EMAIL_HOST_PASSWORD = 'yourpassword'
+EMAIL_PORT = 25
+EMAIL_USE_TLS = False
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
 
@@ -37,6 +43,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'social_auth',
+    'crispy_forms',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -102,6 +109,8 @@ if DEBUG:
     STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static", "static-only")
     MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static", "media")
     STATICFILES_DIRS = [os.path.join(os.path.dirname(BASE_DIR), "static", "static"), ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
 # Setup base-line login url for social_auth
 LOGIN_URL = '/login/'
