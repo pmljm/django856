@@ -44,9 +44,9 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'social_auth',
     'crispy_forms',
-    #'django.contrib.sites',
-    #'allauth',
-    #'allauth.account',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -54,7 +54,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    #'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
+    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
@@ -68,21 +68,21 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.tz",
     "django.contrib.messages.context_processors.messages",
     "django.contrib.auth.context_processors.auth",
-    #"django.core.context_processors.request",
-    #"allauth.account.context_processors.account",
-    #"allauth.socialaccount.context_processors.socialaccount",
+    "django.core.context_processors.request",
+    "allauth.account.context_processors.account",
+    "allauth.socialaccount.context_processors.socialaccount",
 )
 
 # Adding django-allauth support for user mail signin
-# AUTHENTICATION_BACKENDS = (
-#     # Needed to login by username in Django admin, regardless of `allauth`
-#     "django.contrib.auth.backends.ModelBackend",
+AUTHENTICATION_BACKENDS = (
+    # Needed to login by username in Django admin, regardless of `allauth`
+    "django.contrib.auth.backends.ModelBackend",
 
-#     # `allauth` specific authentication methods, such as login by e-mail
-#     "allauth.account.auth_backends.AuthenticationBackend",
-# )
+    # `allauth` specific authentication methods, such as login by e-mail
+    "allauth.account.auth_backends.AuthenticationBackend",
+)
 
-SITE_ID = '550a67144b6b061b30fe6ad7'
+SITE_ID = 1
 
 ROOT_URLCONF = 'project_template.urls'
 
@@ -94,8 +94,12 @@ WSGI_APPLICATION = 'project_template.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django_mongodb_engine',
-        'NAME': 'daryl_database',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'cms',
+        'USER': 'postgres',
+        'PASSWORD': 'cms',
+        'HOST':'localhost',
+        'PORT':'',
     }
 }
 
@@ -200,31 +204,31 @@ READABILITY_CONSUMER_SECRET  = ''
 READABILITY_CONSUMER_SECRET  = ''
 
 # # Configuration for Django-allauth
-# LOGIN_URL = '/accounts/login/'
-# LOGIN_REDIRECT_URL = '/'
+LOGIN_URL = '/accounts/login/'
+LOGIN_REDIRECT_URL = '/'
 
-# ACCOUNT_AUTHENTICATION_METHOD = "username_email"
-# ACCOUNT_CONFIRM_EMAIL_ON_GET = False
-# ACCOUNT_EMAIL_CONFIRMATION_ANONYMOUS_REDIRECT_URL = LOGIN_URL
-# ACCOUNT_EMAIL_CONFIRMATION_AUTHENTICATED_REDIRECT_URL = None
+ACCOUNT_AUTHENTICATION_METHOD = "username_email"
+ACCOUNT_CONFIRM_EMAIL_ON_GET = False
+ACCOUNT_EMAIL_CONFIRMATION_ANONYMOUS_REDIRECT_URL = LOGIN_URL
+ACCOUNT_EMAIL_CONFIRMATION_AUTHENTICATED_REDIRECT_URL = None
 
-# ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 3
-# ACCOUNT_EMAIL_REQUIRED = False
-# ACCOUNT_EMAIL_VERIFICATION = None
-# ACCOUNT_EMAIL_SUBJECT_PREFIX = "My subject: "
-# ACCOUNT_DEFAULT_HTTP_PROTOCOL = "http"
+ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 3
+ACCOUNT_EMAIL_REQUIRED = False
+ACCOUNT_EMAIL_VERIFICATION = None
+ACCOUNT_EMAIL_SUBJECT_PREFIX = "My subject: "
+ACCOUNT_DEFAULT_HTTP_PROTOCOL = "http"
 
-# ACCOUNT_LOGOUT_ON_GET = False
-# ACCOUNT_LOGOUT_REDIRECT_URL = "/"
-# ACCOUNT_SIGNUP_FORM_CLASS = None
-# ACCOUNT_SIGNUP_PASSWORD_VERIFICATION  = True
-# ACCOUNT_UNIQUE_EMAIL = True
-# ACCOUNT_USER_MODEL_USERNAME_FIELD = "username"
-# ACCOUNT_USER_MODEL_EMAIL_FIELD = "email"
+ACCOUNT_LOGOUT_ON_GET = False
+ACCOUNT_LOGOUT_REDIRECT_URL = "/"
+ACCOUNT_SIGNUP_FORM_CLASS = None
+ACCOUNT_SIGNUP_PASSWORD_VERIFICATION  = True
+ACCOUNT_UNIQUE_EMAIL = True
+ACCOUNT_USER_MODEL_USERNAME_FIELD = "username"
+ACCOUNT_USER_MODEL_EMAIL_FIELD = "email"
 
-# ACCOUNT_USERNAME_MIN_LENGTH = 5
-# ACCOUNT_USERNAME_BLACKLIST = []
-# ACCOUNT_USERNAME_REQUIRED = True
-# ACCOUNT_PASSWORD_INPUT_RENDER_VALUE = False
-# ACCOUNT_PASSWORD_MIN_LENGTH = 6
-# ACCOUNT_LOGIN_ON_EMAIL_CONFIRMATION = True
+ACCOUNT_USERNAME_MIN_LENGTH = 5
+ACCOUNT_USERNAME_BLACKLIST = []
+ACCOUNT_USERNAME_REQUIRED = True
+ACCOUNT_PASSWORD_INPUT_RENDER_VALUE = False
+ACCOUNT_PASSWORD_MIN_LENGTH = 6
+ACCOUNT_LOGIN_ON_EMAIL_CONFIRMATION = True
