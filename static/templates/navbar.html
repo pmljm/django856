@@ -30,8 +30,12 @@
                                 <li><a href="components.html" title="">Components</a></li>
                                 <li><a href="grid.html" title="">Grid</a></li>
                                 <li><a href="icons.html" title="">Icons</a></li>
-                                <li><a href="home-variant-1.html" title="">Homepage variant #1</a></li>
-                                <li><a href="home-variant-2.html" title="">Homepage variant #2</a></li>
+                                {% if not request.user.is_authenticated %}
+                                <li><a href="{% url 'account_signup' %}" title="">SignUp</a></li>
+                                <li><a href="{% url 'account_login' %}" title="">LogIn</a></li>
+                                {% else %}
+                                <li><a href="{% url 'account_logout' %}" title="">LogOut</a></li>
+                                {% endif %}
                             </ul>
                         </li>
                         <li li class={% if request.path == contact %} class="active" {%endif%}><a href="{% url 'contact' %}" title="Contact us">Contact</a></li>

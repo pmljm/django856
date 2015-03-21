@@ -21,7 +21,7 @@
             <h3>Social networks</h3>
             <br />
             <p class="active lead">
-
+            {% url 'signup' as signup %}
                 <a  href="{% url 'socialauth_begin' 'facebook-oauth2' %}" class="btn btn-block btn-social btn-facebook" style="color: #3B5998">
                     <i class="fa fa-facebook fa-2x"></i> Sign in with Facebook
                   </a>
@@ -34,7 +34,7 @@
                 <a  href="{% url 'socialauth_begin' 'google-oauth2' %}" class="btn btn-block btn-social btn-google" style="color: #DD4B39">
                     <i class="fa fa-google fa-2x"></i> Sign in with Google
                 </a>
-                <a  href="" class="btn btn-block btn-social btn-sign-in" style="color: black">
+                <a  href="(% url 'signup' %)" class="btn btn-block btn-social btn-sign-in" style="color: black">
                     <i class="fa fa-sign-in fa-2x"></i> Sign in with Your Mail
                 </a>
             </p>
