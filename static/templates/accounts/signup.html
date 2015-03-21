@@ -1,0 +1,86 @@
+{% extends "account/base.html" %}
+{% load crispy_forms_tags %}
+
+{% load url from future %}
+{% load i18n %}
+
+{% block head_title %}{% trans "Signup" %}{% endblock %}
+
+{% block form %}
+<div class="span4 offset4">
+    <div class="row">
+        <h1>{% trans "Sign Up" %}</h1>
+
+        <p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
+
+        <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
+          {% csrf_token %}
+          {{ form|crispy }}
+          {% if redirect_field_value %}
+          <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+          {% endif %}
+          <button class="btn btn-default" type="submit">{% trans "Sign Up" %} &raquo;</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
+{% block footer %}
+  <!-- Footer
+    ================================================== -->
+
+    <footer id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="span4">
+                    <a class="brand" href="index.html">
+                        Plain
+                    </a>
+                    <p>
+                        Creative agency working <br />with web and interactive media. <br />
+                        Lorem ipsum dolor sit amet.
+                        
+                    </p>
+                </div>
+                <div class="span4 social-networks">
+                    <h3>Find us elsewhere</h3>
+                    <p>
+                        <a class="social-network twitter"></a>
+                        <a class="social-network facebook"></a>
+                        <a class="social-network linkedin"></a>
+                        <a class="social-network dribbble"></a>
+                        <a class="social-network pinterest"></a>
+                    </p>
+                </div>
+                <div class="span4 newsletter">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to our monthly newsletter and be the first to know about our news and special deals!</p>
+                    <img class="ajax-loader" src="img/ajax-loader.gif" alt="" />
+                    <form method="post" id="newsletter-form">
+                        <input type="text" placeholder="Enter your E-mail" name="subscribe" />
+                        <input type="hidden" name="bot" /><!-- SPAM protection -->
+                        <button type="submit" class="icon-ok" id="newsletter-subscribe" ></button>
+                    </form>
+                </div> 
+            </div> <!-- end .row -->        
+        </div> <!-- end .container -->
+    </footer><!-- end #footer -->
+
+    <footer id="copyright">
+        <div class="container">
+            <div class="row">
+                <div class="span4">
+                    &copy; 2010—2012 by <a>Plain</a>
+                </div>
+                <div class="span4">
+                    <a href="#" title="Send us email">hello@plain.com</a>, 
+                    +123 320 000 123 456
+                </div>
+                <div class="span4">
+                    <a href="http://themeforest.net/item/plain/2616790?ref=virae" rel="external" title="">PLAIN</a> BY <a title="Michal Šimonfy" rel="external" href="http://virae.org">VIRAE</a>
+                    
+                </div>
+            </div> <!-- end .row -->        
+        </div> <!-- end .container -->
+    </footer><!-- end #footer-extra -->
+  
+{% endblock %}
